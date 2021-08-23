@@ -14,30 +14,84 @@
         <hr />
         <h4>Freelance Services</h4>
         <div class="link-wrap">
-          <img
-            class="social-icon"
-            src="assets/fb_facebook.svg"
-            alt="facebook"
-          />
+          <a
+            href="https://www.facebook.com/SpitfireKaraoke"
+            target="_blank"
+            id="fb-link"
+          >
+            <img
+              class="social-icon"
+              src="assets/fb_facebook.svg"
+              alt="facebook"
+            />
+          </a>
         </div>
         <div class="link-wrap">
-          <img src="assets/instagram.svg" alt="instagram" class="social-icon" />
+          <a
+            href="https://www.instagram.com/mt_clf/"
+            target="_blank"
+            id="ig-link"
+          >
+            <img src="assets/instagram.svg" alt="instagram" class="social-icon"
+          /></a>
         </div>
-        <div class="link-wrap">
+        <!-- <div class="link-wrap">
           <img src="assets/twitter.svg" alt="twitter" class="social-icon" />
-        </div>
-        <div class="link-wrap">
+        </div> -->
+        <!-- <div class="link-wrap">
           <img
             src="assets/fb_messenger.svg"
             alt="facebook messenger"
             class="social-icon"
           />
-        </div>
-        <div class="link-wrap">
+        </div> -->
+        <!-- <div class="link-wrap">
           <img src="assets/whatsapp.svg" alt="whatsapp" class="social-icon" />
-        </div>
+        </div> -->
       </div>
     </main>
     <footer></footer>
   </body>
+  <script>
+    function getMobileOperatingSystem() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (
+        userAgent.match(/iPad/i) ||
+        userAgent.match(/iPhone/i) ||
+        userAgent.match(/iPod/i)
+      ) {
+        return "iOS";
+      } else if (userAgent.match(/Android/i)) {
+        return "Android";
+      } else {
+        return "unknown";
+      }
+    }
+
+    function onLoad() {
+      var fbUrl = "https://www.facebook.com/SpitfireKaraoke";
+      var igUrl = "https://www.instagram.com/mt_clf/";
+      //var tw-link = "twitter link?";
+      switch (getMobileOperatingSystem()) {
+        case "Android":
+          fbUrl =
+            "intent://page/100544965626744?referrer=app_link#Intent;package=com.facebook.katana;scheme=fb;end";
+          igUrl =
+            "intent://www.instagram.com/mt_clf/#Intent;package=com.instagram.android;scheme=https;end";
+          //tw-link = "twitter link?";
+          break;
+        case "iOS":
+          fbUrl = "fb://page/?id=100544965626744";
+          igUrl = "instagram://user?username=mt_clf";
+          //twUrl = "twitter link?";
+          break;
+        default:
+          break;
+      }
+      document.getElementById("fb-link").setAttribute("href", fbUrl);
+      document.getElementById("ig-link").setAttribute("href", igUrl);
+      //document.getElementById("tw-link").setAttribute("href", twUrl);
+    }
+    window.onload = onLoad;
+  </script>
 </html>
