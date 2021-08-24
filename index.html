@@ -70,19 +70,19 @@
 
     function onLoad() {
       var fbUrl = "https://www.facebook.com/SpitfireKaraoke";
-      var igUrl = "https://www.instagram.com/mt_clf/";
+      var igUrl = "https://www.instagram.com/mtclf_/";
       //var tw-link = "twitter link?";
       switch (getMobileOperatingSystem()) {
         case "Android":
           fbUrl =
             "intent://page/100544965626744?referrer=app_link#Intent;package=com.facebook.katana;scheme=fb;end";
           igUrl =
-            "intent://www.instagram.com/mt_clf/#Intent;package=com.instagram.android;scheme=https;end";
+            "intent://www.instagram.com/mtclf_/#Intent;package=com.instagram.android;scheme=https;end";
           //tw-link = "twitter link?";
           break;
         case "iOS":
           fbUrl = "fb://page/?id=100544965626744";
-          igUrl = "instagram://user?username=mt_clf";
+          igUrl = "instagram://user?username=mtclf_";
           //twUrl = "twitter link?";
           break;
         default:
